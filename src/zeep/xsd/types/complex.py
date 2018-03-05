@@ -181,7 +181,8 @@ class ComplexType(AnyType):
 
         # Parse attributes
         if attributes:
-            attributes = copy.copy(attributes)
+            # attributes = copy.copy(attributes)
+            attributes = dict(copy.copy(attributes.items()))
             for name, attribute in self.attributes:
                 if attribute.name:
                     if attribute.qname.text in attributes:
