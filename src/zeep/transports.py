@@ -31,6 +31,8 @@ class Transport(object):
         self.session.headers['User-Agent'] = (
             'Zeep/%s (www.python-zeep.org)' % (get_version()))
 
+        self.response = ''
+
     def get(self, address, params, headers):
         """Proxy to requests.get()
 
@@ -80,6 +82,8 @@ class Transport(object):
             self.logger.debug(
                 "HTTP Response from %s (status: %d):\n%s",
                 address, response.status_code, log_message)
+
+        self.response = response
 
         return response
 
